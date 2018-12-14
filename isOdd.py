@@ -12,13 +12,19 @@ import skvideo.io
 import numpy as np
 from keras.models import load_model
 
+def prediction(num, model):
+    number = np.array(list(map(int, list(bin(int(num))[2:].zfill(100))))).reshape(1, 100)
+    return model.predict(number)
+
+
 def main():
     model_file = 'is_odd_model.h5'
     model = load_model(model_file)
 
     for i in range(10):
-        print(model.predict(np.array([i])))
-    
+        guess = prediction(i, model)
+        print(guess)
+        print(bool(np.argmax(guess)))
 
 if __name__ == '__main__':
     main()
