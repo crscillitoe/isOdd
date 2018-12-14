@@ -49,6 +49,8 @@ def main():
     for i in range(50):
         print(isOdd(i, model))
 
+
+
 def isOdd(n, model):
     return model.predict(np.array([n]))
 
