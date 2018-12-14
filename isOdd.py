@@ -23,8 +23,10 @@ def main():
 
     for i in range(10):
         guess = prediction(i, model)
+        print(f'Is {i} Odd? Neural Net Says:')
         print(guess)
-        print(bool(np.argmax(guess)))
+        print(not bool(np.argmax(guess)))
+        print()
 
 if __name__ == '__main__':
     main()
