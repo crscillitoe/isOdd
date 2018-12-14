@@ -11,6 +11,8 @@ import time
 import skvideo.io
 
 def main():
+    model_file = 'is_odd_model.h5'
+
     X = np.array([x for x in range(8000, 40000)])
     y = np.array([x % 2 for x in X])
 
@@ -46,13 +48,7 @@ def main():
               epochs=20,
               batch_size=512)
 
-    for i in range(50):
-        print(isOdd(i, model))
-
-
-
-def isOdd(n, model):
-    return model.predict(np.array([n]))
+    model.save(model_file)
 
 if __name__ == '__main__':
     main()
