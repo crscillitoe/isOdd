@@ -44,7 +44,7 @@ def main():
     # Train the model
     model.fit(X_train, y_train,
               validation_data = (X_val, y_val),
-              epochs=20,
+              epochs=1000,
               batch_size=512)
 
     # Save the model to the output file
